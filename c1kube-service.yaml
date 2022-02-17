@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: kube-state-metrics
+  labels:
+    k8s-app: kube-state-metrics
+    app.kubernetes.io/instance: kube-state-metrics
+
+spec:
+  externalName: 54.157.115.10
+  type: ExternalName
+  ports:
+    - name: metrics
+      port: 32680
+      protocol: TCP
+      targetPort: 32680
+

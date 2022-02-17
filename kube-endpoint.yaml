@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: kube-state-metrics
+  labels:
+    k8s-app: kube-state-metrics
+    app.kubernetes.io/instance: kube-state-metrics
+
+subsets:
+  - addresses:
+    - ip: 54.157.115.10
+    ports:
+      - port: 32680
+

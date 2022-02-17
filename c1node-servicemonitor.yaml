@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: my-prometheus-node-exporter
+  labels:
+    k8s-app: my-prometheus-node-exporter
+    release: prometheus
+spec:
+  selector:
+    matchLabels:
+      k8s-app: my-prometheus-node-exporter
+      release: prometheus
+  namespaceSelector:
+    matchNames:
+    - default
+  endpoints:
+  - port: metrics
+    interval: 10s
+    honorLabels: true
+    path: /metrics

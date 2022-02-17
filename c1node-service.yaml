@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: my-prometheus-node-exporter
+  labels:
+    k8s-app: my-prometheus-node-exporter
+spec:
+  externalName: 54.157.115.10
+  type: ExternalName
+  ports:
+    - name: metrics
+      port: 31469
+      protocol: TCP
+      targetPort: 31469
